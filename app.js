@@ -1,13 +1,17 @@
 require('dotenv').config();
 const express = require('express');
+const helmet = require('helmet');
 const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
 const { errors } = require('celebrate');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
-const NotFoundError = require('./errors/not-found-error');
+const rateLimiter = require('./middlewares/rate-limiter');
 
 const { PORT = 3000, NODE_ENV, DB_ID } = process.env;
 const app = express();
+
+app.use(helmet());
+app.use(rateLimiter);
 
 app.use(cookieParser());
 
@@ -19,10 +23,6 @@ mongoose.connect(`mongodb://${NODE_ENV === 'production' ? DB_ID : '127.0.0.1:270
 app.use(requestLogger);
 
 app.use(require('./routes/index'));
-
-app.get('*', (req, res, next) => {
-  next(new NotFoundError('Рута не существует'));
-});
 
 app.use(errorLogger);
 
