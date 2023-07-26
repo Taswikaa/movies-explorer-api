@@ -2,7 +2,6 @@ require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
-const cors = require('cors');
 const { errors } = require('celebrate');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 const NotFoundError = require('./errors/not-found-error');
@@ -11,7 +10,6 @@ const { PORT = 3000, NODE_ENV, DB_ID } = process.env;
 const app = express();
 
 app.use(cookieParser());
-app.use(cors({ origin: ['http://yuwarika.movies-explorer.nomoredomains.sbs, https://yuwarika.movies-explorer.nomoredomains.sbs'], credentials: true }));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
