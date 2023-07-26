@@ -1,6 +1,6 @@
 require('dotenv').config();
 const express = require('express');
-// const helmet = require('helmet');
+const helmet = require('helmet');
 const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
 const { errors } = require('celebrate');
@@ -10,7 +10,7 @@ const { requestLogger, errorLogger } = require('./middlewares/logger');
 const { PORT = 3000, NODE_ENV, DB_ID } = process.env;
 const app = express();
 
-// app.use(helmet());
+app.use(helmet());
 // app.use(rateLimiter);
 
 app.use(cookieParser());
