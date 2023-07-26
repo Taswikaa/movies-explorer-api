@@ -2,5 +2,5 @@
 
 ## API проекта movies-explorer
 
-* http://yuwarika.movies-explorer.nomoredomains.sbs
-* https://yuwarika.movies-explorer.nomoredomains.sbs
+* http://api.yuwarika.nomoreparties.sbs
+* https://api.yuwarika.nomoreparties.sbs
