@@ -71,6 +71,8 @@ module.exports.login = (req, res, next) => {
 };
 
 module.exports.logout = (req, res) => {
-  res.clearCookie('jwt');
+  res.clearCookie('jwt', {
+    sameSite: 'None',
+  });
   res.status(200).send('Вы успешно вышли');
 };
