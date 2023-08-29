@@ -63,7 +63,7 @@ module.exports.login = (req, res, next) => {
         httpOnly: true,
         secure: true,
         sameSite: 'None',
-        domain: '.nomoreparties.co',
+        domain: 'nomoreparties.sbs',
       });
 
       res.send(token);
@@ -75,7 +75,7 @@ module.exports.logout = (req, res) => {
   res.clearCookie('jwt', {
     sameSite: 'None',
     secure: true,
-    domain: '.nomoreparties.co',
+    domain: 'nomoreparties.sbs',
   });
   res.status(200).send('Вы успешно вышли');
 };
