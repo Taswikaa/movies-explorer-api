@@ -10,7 +10,7 @@ const { PORT = 3000, NODE_ENV, DB_ID } = process.env;
 const app = express();
 
 app.use(cookieParser());
-app.use(cors({ origin: 'https://yuwarika.nomoreparties', credentials: true, sameSite: 'None' }));
+app.use(cors({ origin: 'https://yuwarika.nomoreparties.co', credentials: true }));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
