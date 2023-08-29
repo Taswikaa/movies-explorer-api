@@ -63,6 +63,7 @@ module.exports.login = (req, res, next) => {
         httpOnly: true,
         secure: true,
         sameSite: 'None',
+        domain: 'https://yuwarika.nomoreparties.co',
       });
 
       res.send(token);
@@ -74,6 +75,7 @@ module.exports.logout = (req, res) => {
   res.clearCookie('jwt', {
     sameSite: 'None',
     secure: true,
+    domain: 'https://yuwarika.nomoreparties.co',
   });
   res.status(200).send('Вы успешно вышли');
 };
