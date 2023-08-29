@@ -63,6 +63,7 @@ module.exports.login = (req, res, next) => {
         httpOnly: true,
         secure: true,
         sameSite: 'None',
+        domain: 'nomoreparties.co',
       });
 
       res.send(token);
